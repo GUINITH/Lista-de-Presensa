@@ -22,11 +22,17 @@ export default function Home() {
 
   return (
     <div className={style.container}>
-      <h1>Nome: {nameUser}</h1>
+      <header>
+        <h1>Lista de Presença</h1>
+        <div>
+          <strong>Guilherme Felipe</strong>
+          <img src="https://github.com/GUINITH.png" alt="Foto de perfil" />
+        </div>
+      </header>
       <input type="text" placeholder="Digite seu nome" onChange={(e)=> setNameUser(e.target.value)} />
       <button type="button" onClick={handleAddStudent}>Adicionar</button>
-      {students.length > 0 && students.map((student, index) => (
-  <Card key={index} userName={student.nomeUsuario} timeUser={student.tempo} />
+      {students.map((student) => (
+  <Card key={student.timeUser} userName={student.nomeUsuario} timeUser={student.tempo} />
     ))}
     </div>
   )
